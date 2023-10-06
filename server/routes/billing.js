@@ -20,10 +20,7 @@ router.get('/get', async (req, res) => {
     try {
         // Extract the userId from the query parameters
         const userId = req.query.userId;
-
-        // Query your MongoDB database to retrieve the cart items for the user
         const billingDetails = await billingSchema.find({ userId: userId });
-
         // Send the cart items as a JSON response
         res.json({ billingDetails });
     } catch (error) {
